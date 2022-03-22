@@ -14,7 +14,7 @@ class ListView2Screen extends StatelessWidget {
     "Peru",
     "Paraguay",
     "Honduras",
-    "Guatemala"
+    "Guatemalale"
   ];
 
   const ListView2Screen({Key? key}) : super(key: key);
@@ -23,13 +23,23 @@ class ListView2Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.indigo,
           title: const Text("ListView1"),
         ),
         body: ListView.separated(
             itemBuilder: (context, index) => ListTile(
                   title: Text(options[index]),
-                  leading: Icon(Icons.flag),
-                  trailing: Icon(Icons.chevron_right),
+                  leading: const Icon(
+                    Icons.flag,
+                    color: Colors.indigo,
+                  ),
+                  trailing:
+                      const Icon(Icons.chevron_right, color: Colors.indigo),
+                  onTap: () {
+                    final country = options[index];
+                    print(country);
+                  },
                 ),
             separatorBuilder: (_, __) => const Divider(),
             itemCount: options.length));
