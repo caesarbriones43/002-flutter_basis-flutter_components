@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_components/models/models.dart';
 
 import '../screens/screen.dart';
 
 class AppRoutes {
-  static const initialRoute = 'home';
+  static const initialRoute = 'listview1';
 
   static final menuOptions = <MenuOption>[
     MenuOption(
         route: 'home',
-        name: 'HomeScreen',
+        name: 'home',
         icon: Icons.home,
         screen: const HomeScreen()),
     MenuOption(
         route: 'listview1',
-        name: 'ListView1Screen',
+        name: 'listview1',
         icon: Icons.list,
         screen: const HomeScreen()),
     MenuOption(
         route: 'listview2',
-        name: 'ListView2Screen',
-        icon: Icons.list,
+        name: 'listview2',
+        icon: Icons.line_style,
         screen: const ListView2Screen()),
     MenuOption(
         route: 'card',
-        name: 'CardScreen',
-        icon: Icons.list,
+        name: 'card',
+        icon: Icons.credit_card,
         screen: const CardScreen()),
     MenuOption(
         route: 'alert',
-        name: 'AlertScreen',
-        icon: Icons.list,
+        name: 'AleralerttScreen',
+        icon: Icons.add_alarm,
         screen: const AlertScreen())
   ];
 
@@ -39,11 +38,21 @@ class AppRoutes {
     return MaterialPageRoute(builder: (context) => const AlertScreen());
   }
 
-  static Map<String, Widget Function(BuildContext)> routes = {
-    'home': (BuildContext context) => const HomeScreen(),
-    'listview1': (BuildContext context) => const ListView1Screen(),
-    'listview2': (BuildContext context) => const ListView2Screen(),
-    'card': (BuildContext context) => const CardScreen(),
-    'alert': (BuildContext context) => const AlertScreen(),
-  };
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+    Map<String, Widget Function(BuildContext)> appRoutes = {};
+
+    for (final option in menuOptions) {
+      appRoutes.addAll({option.name: (BuildContext context) => option.screen});
+    }
+
+    return appRoutes;
+  }
+
+  // static Map<String, Widget Function(BuildContext)> routes = {
+  //   'home': (BuildContext context) => const HomeScreen(),
+  //   'listview1': (BuildContext context) => const ListView1Screen(),
+  //   'listview2': (BuildContext context) => const ListView2Screen(),
+  //   'card': (BuildContext context) => const CardScreen(),
+  //   'alert': (BuildContext context) => const AlertScreen(),
+  // };
 }
