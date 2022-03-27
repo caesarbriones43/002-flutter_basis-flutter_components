@@ -19,6 +19,10 @@ class MyApp extends StatelessWidget {
         'card': (BuildContext context) => const CardScreen(),
         'alert': (BuildContext context) => const AlertScreen(),
       },
+      onGenerateRoute: (settings) {
+        print(settings);
+        return MaterialPageRoute(builder: (context) => const AlertScreen());
+      },
     );
   }
 }
