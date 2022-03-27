@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_components/themes/app_theme.dart';
 
 class ListView2Screen extends StatelessWidget {
   final options = const [
@@ -23,9 +24,7 @@ class ListView2Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.indigo,
-          title: const Text("ListView1"),
+          title: const Text("ListView2"),
         ),
         body: ListView.separated(
             itemBuilder: (context, index) => ListTile(
@@ -35,7 +34,7 @@ class ListView2Screen extends StatelessWidget {
                     color: Colors.indigo,
                   ),
                   trailing:
-                      const Icon(Icons.chevron_right, color: Colors.indigo),
+                      const Icon(Icons.chevron_right, color: AppTheme.primary),
                   onTap: () {
                     final country = options[index];
                     print(country);
